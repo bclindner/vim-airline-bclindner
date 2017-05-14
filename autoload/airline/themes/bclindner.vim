@@ -4,8 +4,8 @@ let g:airline#themes#bclindner#palette = {}
 
 " NORMAL
 let s:N1   = [ '#585858' , '#E4E4E4' , 59   , 188 ]
-let s:N2   = [ '#EEEEEE' , '#9442AF' , 255  , 135 ]
-let s:N3   = [ '#262626' , '#76348C' , 235  , 98 ]
+let s:N2   = [ '#EEEEEE' , '#9442AF' , 253  , 135 ]
+let s:N3   = [ '#262626' , '#76348C' , 253  , 98 ]
 let g:airline#themes#bclindner#palette.normal = airline#themes#generate_color_map(s:N1, s:N2, s:N3)
 "let g:airline#themes#bclindner#palette.normal_modified = {
       "\ 'airline_c': [ '#ffffff' , '#5f005f' , 255     , 53      , ''     ] ,
