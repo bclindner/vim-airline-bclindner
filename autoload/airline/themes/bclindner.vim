@@ -1,67 +1,86 @@
 " bclindner vim theme
-" based on 'cool' theme from vim-airline/vim-airline-themes
+" based loosely on 'cool' theme from vim-airline/vim-airline-themes
 let g:airline#themes#bclindner#palette = {}
 
+let s:foreground= "#e3e3e3"
+let s:background= "#1d1f21"
+let s:cursorColor= "#e3e3e3"
+"" black
+let s:color0= "#1d1f21"
+let s:color8= "#595f66"
+"" red
+let s:color1= "#af3131"
+let s:color9= "#d05c5c"
+"" green
+let s:color2= "#65cc3e"
+let s:color10= "#a6e174"
+"" yellow
+let s:color3= "#ee7d2f"
+let s:color11= "#e4954c"
+"" blue
+let s:color4= "#4a8cc3"
+let s:color12= "#65a7df"
+"" magenta
+let s:color5= "#875fd7"
+let s:color13= "#af5fff"
+"" cyan
+let s:color6= "#45c3b3"
+let s:color14= "#7cdacd"
+"" white
+let s:color7= "#777777"
+let s:color15= "#e3e3e3"
+
+" reference:
+" each palette is an array of attributes for:
+" [
+" \ guifg,
+" \ guibg,
+" \ ctermfg,
+" \ ctermbg,
+" \ attrs (see :help attr-list)
+" \ ]
+"
+" sections are:
+" A      | B      | C            | X           | Y     | Z
+" NORMAL | master | bclindner.vim          vim | utf-8 | 25% LN 17/63
+"
+" generate_color_map appears to combine A+Z, B+Y, and C+X together
+
+" default colors for A/Z edge sections (constant between all modes)
+let s:ALL_AZ = [ s:color0 , s:color15 , 0 , 15 ]
+
 " NORMAL
-let s:N1   = [ '#585858' , '#E4E4E4' , 59   , 188 ]
-let s:N2   = [ '#EEEEEE' , '#9442AF' , 253  , 135 ]
-let s:N3   = [ '#262626' , '#76348C' , 253  , 98 ]
-let g:airline#themes#bclindner#palette.normal = airline#themes#generate_color_map(s:N1, s:N2, s:N3)
-"let g:airline#themes#bclindner#palette.normal_modified = {
-      "\ 'airline_c': [ '#ffffff' , '#5f005f' , 255     , 53      , ''     ] ,
-      "\ }
+let s:NORM_BY = [ s:color15, s:color13, 15, 13 ]
+let s:NORM_CX = [ s:color15, s:color5, 15, 5 ]
+let g:airline#themes#bclindner#palette.normal = airline#themes#generate_color_map(s:ALL_AZ, s:NORM_BY, s:NORM_CX)
 
 " INSERT
-let s:I1 = [ '#585858' , '#E4E4E4' , 59  , 188  ]
-let s:I2 = [ '#E4E4E4' , '#47AF00' , 188 , 70  ]
-let s:I3 = [ '#EEEEEE' , '#2E8700' , 231  , 28 ]
-let g:airline#themes#bclindner#palette.insert = airline#themes#generate_color_map(s:I1, s:I2, s:I3)
-"let g:airline#themes#bclindner#palette.insert_modified = {
-      "\ 'airline_c': [ '#ffffff' , '#5f005f' , 255     , 53      , ''     ] ,
-      "\ }
-"let g:airline#themes#bclindner#palette.insert_paste = {
-      "\ 'airline_a': [ s:I1[0]   , '#d78700' , s:I1[2] , 172     , ''     ] ,
-      "\ }
+let s:INS_BY = [ s:color0, s:color10, 0, 10 ]
+let s:INS_CX = [ s:color0, s:color2, 0, 2 ]
+let g:airline#themes#bclindner#palette.insert = airline#themes#generate_color_map(s:ALL_AZ, s:INS_BY, s:INS_CX)
 
 " REPLACE
-let s:R1 = [ '#585858' , '#E4E4E4' , 59  , 188  ]
-let s:R2 = [ '#E4E4E4' , '#AF5F00' , 188 , 130  ]
-let s:R3 = [ '#EEEEEE' , '#875300' , 231  , 94  ]
-let g:airline#themes#bclindner#palette.replace = airline#themes#generate_color_map(s:R1, s:R2, s:R3)
-"let g:airline#themes#bclindner#palette.replace.airline_a = [ s:I2[0]   , '#af0000' , s:I2[2] , 124     , ''     ]
-"let g:airline#themes#bclindner#palette.replace_modified = g:airline#themes#cool#palette.insert_modified
+let s:REPL_BY = [ s:color15 , s:color9 , 15 , 9 ]
+let s:REPL_CX = [ s:color15 , s:color1 , 15  , 1  ]
+let g:airline#themes#bclindner#palette.replace =
+      \ airline#themes#generate_color_map(s:ALL_AZ, s:REPL_BY, s:REPL_CX)
 
 " VISUAL
-let s:V1 = [ '#585858' , '#E4E4E4' , 59 , 188 ]
-let s:V2 = [ '#E4E4E4' , '#AF2800' , 188 , 124 ]
-let s:V3 = [ '#EEEEEE' , '#872800' , 231  , 88  ]
-let g:airline#themes#bclindner#palette.visual = airline#themes#generate_color_map(s:V1, s:V2, s:V3)
-"let g:airline#themes#bclindner#palette.visual_modified = {
-      "\ 'airline_c': [ '#ffffff' , '#5f005f' , 255     , 53      , ''     ] ,
-      "\ }
+let s:VIS_BY = [ s:color15 , s:color9 , 15 , 9 ]
+let s:VIS_CX = [ s:color15 , s:color1 , 15  , 1  ]
+let g:airline#themes#bclindner#palette.visual =
+      \ airline#themes#generate_color_map(s:ALL_AZ, s:VIS_BY, s:VIS_CX)
 
 " INACTIVE
-let s:IA1 = [ '#585858' , '#E4E4E4' , 59 , 188 , '' ]
-let s:IA2 = [ '#E4E4E4' , '#466D79' , 188 , 60 , '' ]
-let s:IA3 = [ '#EEEEEE' , '#324E59' , 231 , 59 , '' ]
-let g:airline#themes#bclindner#palette.inactive = airline#themes#generate_color_map(s:IA1, s:IA2, s:IA3)
-"let g:airline#themes#bclindner#palette.inactive_modified = {
-      "\ 'airline_c': [ '#875faf' , '' , 97 , '' , '' ] ,
-      "\ }
-
-
-let g:airline#themes#bclindner#palette.accents = {
-      \ 'red': [ '#ff0000' , '' , 196 , ''  ]
-      \ }
+let s:INC_BY = [ s:color15, s:color8, 15, 8 ]
+let s:INC_CX = [ s:color15, s:color8, 15, 8 ]
+let g:airline#themes#bclindner#palette.inactive =
+      \ airline#themes#generate_color_map(s:ALL_AZ, s:INC_BY, s:INC_CX)
 
 " CTRLP
 if !get(g:, 'loaded_ctrlp', 0)
   finish
 endif
-let g:airline#themes#bclindner#palette.ctrlp = airline#extensions#ctrlp#generate_color_map(
-      \ [ '#E4E4E4' , '#00AFA2' , 188 , 37  , ''     ],
-      \ [ '#EEEEEE' , '#008787' , 231  , 30 , ''     ],
-      \ [ '#585858' , '#E4E4E4' , 59 , 188  , ''     ])
-
-
-
+let s:CTRLP_BY = [ s:color15, s:color13, 15, 13 ]
+let s:CTRLP_CX = [ s:color15, s:color5, 15, 5 ]
+let g:airline#themes#bclindner#palette.ctrlp = airline#extensions#ctrlp#generate_color_map(s:ALL_AZ, s:CTRLP_BY, s:CTRLP_CX)
