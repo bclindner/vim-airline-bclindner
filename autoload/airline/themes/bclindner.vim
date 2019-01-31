@@ -66,8 +66,8 @@ let g:airline#themes#bclindner#palette.replace =
       \ airline#themes#generate_color_map(s:ALL_AZ, s:REPL_BY, s:REPL_CX)
 
 " VISUAL
-let s:VIS_BY = [ s:color15 , s:color9 , 15 , 9 ]
-let s:VIS_CX = [ s:color15 , s:color1 , 15  , 1  ]
+let s:VIS_BY = [ s:color15 , s:color9 , 0 , 9 ]
+let s:VIS_CX = [ s:color15 , s:color1 , 0 , 1 ]
 let g:airline#themes#bclindner#palette.visual =
       \ airline#themes#generate_color_map(s:ALL_AZ, s:VIS_BY, s:VIS_CX)
 
