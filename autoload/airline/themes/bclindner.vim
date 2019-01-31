@@ -55,8 +55,8 @@ let s:NORM_CX = [ s:color15, s:color5, 15, 5 ]
 let g:airline#themes#bclindner#palette.normal = airline#themes#generate_color_map(s:ALL_AZ, s:NORM_BY, s:NORM_CX)
 
 " INSERT
-let s:INS_BY = [ s:color0, s:color10, 0, 10 ]
-let s:INS_CX = [ s:color0, s:color2, 0, 2 ]
+let s:INS_BY = [ s:color0, s:color10, 15, 2 ]
+let s:INS_CX = [ s:color0, s:color2, 15, 10 ]
 let g:airline#themes#bclindner#palette.insert = airline#themes#generate_color_map(s:ALL_AZ, s:INS_BY, s:INS_CX)
 
 " REPLACE
